@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'accounts:logout' %}">Chiqing!!!</a> |
+    <a href="{% url 'accounts:userupdate' %}">Ma'lumotlaringizni yangilang!!!</a>
+    {% else %}
+    <a href="{% url 'accounts:signup' %}">Ro'yxatdan o'ting!!!</a> | 
+    <a href="{% url 'accounts:login' %}">Tizimga kiring!!!</a>
+    {% endif %}
+</div>
+
+<h2>Categories</h2>
+{% for ctg in categories %}
+{{ ctg.name }}<br>
+{% endfor %}
+<hr>
+
+<h2>Main News</h2>
+{% for article in main_news %}
+{{ article.title }} | {{ article.category }} | {{ article.created_at }}<br>
+{% endfor %}
+<hr>
+
+{% endblock content %}

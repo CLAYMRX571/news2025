@@ -1,2 +1,2 @@
-# news2025
-Python news django
+# news-25
+python new project news 2025

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>News 2025</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet"> 
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Top Bar Start -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tb-contact">
+                            <p><i class="fas fa-envelope"></i>claymrx571@mail.com</p>
+                            <p><i class="fas fa-phone-alt"></i>+998880052505</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tb-menu">
+                            <a href="{% url 'contact' %}">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar Start -->
+        
+        <!-- Brand Start -->
+        <div class="brand">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="b-logo">
+                            <h1>
+                                News
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="b-search">
+                                    <input type="text" placeholder="Search">
+                                    <button><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brand End -->
+
+        <!-- Nav Bar Start -->
+        <div class="nav-bar">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            {% for ctg in categories %}
+                            {% if forloop.counter < 5 %}
+                            <a href="{% url 'single_articles' ctg.slug %}" class="nav-item nav-link active">{{ ctg.name }}</a>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="nav-item dropdown">
+                                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Other Category</a>
+                                <div class="dropdown-menu">
+                                    {% for ctg in categories %}
+                                    {% if forloop.counter > 4 %}
+                                    <a href="{% url 'single_articles' ctg.slug %}" class="dropdown-item">{{ ctg.name }}</a>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+
+        {% block content %}
+        {% endblock content %}
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h3 class="title">Get in Touch</h3>
+                            <div class="contact-info">
+                                <p><i class="fas fa-map"></i>Tashkent</p>
+                                <p><i class="fas fa-envelope"></i>claymrx571@example.com</p>
+                                <p><i class="fas fa-phone"></i>+998880052505</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+            
+        <!-- Footer Menu Start -->
+        <div class="footer-menu">
+            <div class="container">
+                <div class="f-menu">
+                    <a href="{% url 'contact' %}">Contact us</a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Menu End -->
+
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        <p>Copyright &copy; HTML Codex. All Rights Reserved</p>
+                    </div>
+
+                    <div class="col-md-6 template-by">
+                        <p>Template By HTML Codex</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->
+    
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/slick/slick.min.js' %}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
+    
