@@ -8,16 +8,32 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="sn-container">
+                            {% for new in articles %}
                             <div class="sn-img">
-                                <img src="{{ article.image.url }}" />
+                                <img src="{{ new.image.url }}" />
                             </div>
                             <div class="sn-content">
-                                <h1 class="sn-title">{{article.title}}</h1>
+                                <h1 class="sn-title">{{new.title}}</h1>
                                 <p>
-                                    {{ article.description |safe }}
+                                    {{ new.description |safe }}
                                 </p>
                             </div>
-                        </div>  
+                            {% endfor %}
+                        </div>
+                            <div class="row sn-slider">
+                                {% for new in main_news %}
+                                {% if forloop.counter > 5 %}
+                                <div class="col-md-4">
+                                    <div class="sn-img">
+                                        <img src="{{new.image.url}}" />
+                                        <div class="sn-title">
+                                            <a href="{% url 'detail' new.slug %}">{{ new.title }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
                     </div>
 
                     <div class="col-lg-4">
@@ -25,14 +41,14 @@
                             <div class="sidebar-widget">
                                 <h2 class="sw-title">In This Category</h2>
                                 <div class="news-list">
-                                    {% for new in similiar_news %}
+                                    {% for new in latest_news %}
                                     {% if forloop.counter < 5 %}
                                     <div class="nl-item">
                                         <div class="nl-img">
                                             <img src="{{ new.image.url }}" />
                                         </div>
                                         <div class="nl-title">
-                                            <a href="{% url 'detail' new.slug %}">{{ new.title }}</a>
+                                            <a href="">{{ new.title }}</a>
                                         </div>
                                     </div>
                                     {% endif %}

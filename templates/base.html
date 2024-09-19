@@ -83,7 +83,7 @@
                         <div class="navbar-nav mr-auto">
                             {% for ctg in categories %}
                             {% if forloop.counter < 5 %}
-                            <a href="{% url 'single_articles' ctg.slug %}" class="nav-item nav-link active">{{ ctg.name }}</a>
+                            <a href="" class="nav-item nav-link active">{{ ctg.name }}</a>
                             {% endif %}
                             {% endfor %}
                             <div class="nav-item dropdown">
@@ -91,7 +91,7 @@
                                 <div class="dropdown-menu">
                                     {% for ctg in categories %}
                                     {% if forloop.counter > 4 %}
-                                    <a href="{% url 'single_articles' ctg.slug %}" class="dropdown-item">{{ ctg.name }}</a>
+                                    <a href="" class="dropdown-item">{{ ctg.name }}</a>
                                     {% endif %}
                                     {% endfor %}
                                 </div>
