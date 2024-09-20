@@ -134,12 +134,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
+                    <h3>Main News</h3>
                     <div class="row">
                         {% for new in articles %}
                         {% if forloop.counter < 5 %}
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="{{ new.image.url }}" />
+                                <img src="{{ new.image.url }}" width="150" height="150"/>
                                 <div class="mn-title">
                                     <a href="{% url 'detail' new.slug %}">{{new.title}}</a>
                                 </div>
